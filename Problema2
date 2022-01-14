@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+int main (){
+    bool k=1;            //k será 0 cuando no sean iguales
+    char cadena1[]="no quiero";
+    char cadena2[]="no queero";
+    int i;
+    int j;
+
+    for(i=0; cadena1[i]!='\0'; i++){   //i+1 resultará siendo la longitud de cadena 1
+    }
+
+    for(j=0; cadena2[j]!='\0'; j++){    //j+1 resultará siendo la longitud de cadena2
+    }
+
+    if(i!=j){
+        k=0;
+    }
+    else{
+        for(int it=0; it<i ; it++){
+                if(cadena1[it]!=cadena2[it]){
+            k=0;
+        }
+    }
+    }
+        if(k==0){
+            cout<<"falso"<<endl;
+        }
+        else{
+            cout<<"verdadero"<<endl;
+        }
+return 0;
+}
