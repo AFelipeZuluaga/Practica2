@@ -1,6 +1,14 @@
 #include <iostream>
 using namespace std;
 int main(){
+             /* Problema 1. Elabore un programa que genere un arreglo de 200 letras mayúsculas aleatorias, imprima este arreglo
+            y luego imprima cuantas veces se repite cada letra en el arreglo.
+            Ejemplo: supóngase que se genera el arreglo de 10 elementos: ABARSECAAB. El programa debe imprimir: ABARSECAAB
+            A: 4
+            B: 2
+            C: 1
+            Y así sucesivamente.
+        */
 
             char c;
             char c2;
