@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+int main(){
+
+            char c;
+            char c2;
+            int n;
+            int cadnodim[200];
+            int cadnodim2[]={0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+            int i;
+
+            while(i<200){
+                n = rand() % 26 + 65;   //Desde 65 hasta 65+25=90
+
+                c2=n;
+
+                cadnodim[i]=c2;       //Se ingresan las letras Mayúsculas al arreglo
+                i++;
+                cadnodim2[n-65] = cadnodim2[n-65]+1;
+
+                        cout<<c2;
+
+
+
+                    }
+
+                    cout<<endl;
+                    for(int j=0; j<=25; j++){
+                        c= 65+j;
+                        cout<< c <<": "<< cadnodim2[j]<<endl;
+                    }
+
+return 0;
+}
