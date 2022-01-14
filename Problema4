@@ -1,0 +1,39 @@
+#include <iostream>
+
+using namespace std;
+
+int Digitos(int a);
+
+int main ()
+{
+
+       /* Problema 4. Haga una función que reciba un numero entero (int) y lo convierta a cadena de caracteres. Use
+parámetros por referencia para retornar la cadena. Escriba un programa de prueba.
+Ejemplo: si recibe un int con valor 123, la cadena que se retorne debe ser “123”.
+        */
+    int n=0;
+    int var=0;
+    int dim = 0;
+    char *num = new char[dim+1];
+    cout<<"ingrese un numero: ";
+    cin>>n;
+
+    var=Digitos(n);
+    num[var]='\0';
+
+    for(int i=Digitos(n)-1;i>=0;i--){
+        *(num+i)=char((n%10)+48);
+        n=n/10;
+}
+            cout<<"numero: "<<num<<endl;
+return 0;
+}
+int Digitos(int a){
+    int dig=0;
+    do{
+        a=a/10;
+        dig++;
+    }
+    while(a!=0);
+    return dig;
+}
