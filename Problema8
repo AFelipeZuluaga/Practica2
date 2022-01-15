@@ -1,0 +1,110 @@
+#include <iostream>
+
+using namespace std;
+
+void problema8(char *cad, int dim);
+
+int main()
+{
+    /* Problema 8. Escribir un programa que permita convertir un número en el sistema romano al sistema arábigo
+usado actualmente. A continuación se encuentran los caracteres usados en el sistema romano y su equivalente arábigo:
+M: 1000
+D: 500
+C: 100
+L: 50
+X: 10
+V: 5
+I: 1
+Los números romanos se forman usando estos caracteres en base a dos reglas:
+Si un carácter esta seguido por uno de igual o menor valor, su valor se suma al total.
+Si un carácter esta seguido por uno de mayor valor, su valor se resta del total.
+
+Ejemplo: CC=200, CD=400, DC=600, DCLXVI=666, CLXXIV=174.
+
+Nota: la salida del programa debe ser:
+El número ingresado fue: DCLXVI
+Que corresponde a: 666.
+    */
+
+    int dim=0;
+    char *cad=new char[dim+1];
+
+    cout<<"Ingrese la cadena de caracteres: ";
+
+    cad[dim]='\0';
+    fflush(stdin);
+    gets(cad);
+    problema8(cad, dim);
+    delete[] cad;
+    return 0;
+}
+
+
+
+
+void problema8(char *cad, int dim){
+
+    int *num=new int[dim+1];
+
+    /*
+M: 1000
+D: 500
+C: 100
+L: 50
+X: 10
+V: 5
+I: 1
+    */
+
+
+    cout<<"El numero ingresado fue: "<<cad<<endl<<"Que corresponde a: ";
+
+    int numero=0;
+    int i=0;
+
+    for(i=0; cad[i]!='\0'; i++){
+
+        switch(cad[i]){
+        case 'M':
+            num[i]=1000;
+           break;
+
+        case 'D':
+            num[i]=500;
+            break;
+
+        case 'C':
+            num[i]=100;
+           break;
+
+        case 'L':
+            num[i]=50;
+            break;
+
+        case 'X':
+            num[i]=10;
+           break;
+
+        case 'V':
+            num[i]=5;
+            break;
+
+        case 'I':
+            num[i]=1;
+           break;
+        }
+
+        if(i==0){
+            numero=num[i];
+        }
+        else{
+            if(num[i-1]>=num[i]){ //Si un carácter esta seguido por uno de igual o menor valor, su valor se suma al total.
+                numero=numero+num[i];
+            }
+            else{   //Si un carácter esta seguido por uno de mayor valor, su valor se resta del total.
+                numero=numero+num[i]-2*num[i-1];
+            }
+        }
+    }
+    cout<<numero<<endl;
+}
