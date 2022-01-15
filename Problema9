@@ -1,0 +1,126 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void mostrar_sillas(char sillas[15][20]);
+
+int main()
+{
+    /* Problema 11. Escriba un programa que permita manejar las reservas de asientos en una sala de cine, los asientos de
+la sala de cine están organizados en 15 filas con 20 asientos cada una. El programa debe mostrar una representación
+de la sala que indique que asientos están disponibles y cuales se encuentran reservados. Además debe permitir
+realizar reservas o cancelaciones al ingresar la fila (letras A-O) y el número del asiento (números 1-20).
+Nota: un ejemplo de visualización de una sección de la sala es el siguiente:
++ + + +
+- - + +
+- - - -
+Donde + representa los asientos reservados y - representa los asientos disponibles.
+    */
+
+    char fila_letras;
+    int fila=0;
+    int columna=0;
+    char eleccion='N';
+    char otra_vez;
+
+    bool k=0;
+
+    char sillas[15][20];
+
+    //Llenamos la matriz
+    for(int j=0; j<15; j++){
+        for(int i=0; i<20; i++){
+            sillas[j][i]='-';
+        }
+    }
+
+    cout<<"Asi se encuentra el aforo de las sillas: "<<endl;
+
+    mostrar_sillas(sillas);
+
+
+
+    while(otra_vez!='P'){
+        while(eleccion=='N'){
+
+            while(k==0){
+                cout<<"Ingresa la fila (A-O): ";
+                cin>>fila_letras;
+
+                fila=fila_letras-65;        //Se cambia a números
+
+                if(fila<0 || fila>14){
+                    cout<<"La fila ingresada no es valida, ingrese otra fila."<<endl;
+                }
+                else{
+                    k=1;
+                }
+            }
+            k=0;
+
+            while(k==0){
+                cout<<"Ingresa la columna (1-20): ";
+                cin>>columna;
+
+                columna--;              //Se le resta una unidad para que empiece desde la posición 0
+
+                if(columna<0 || columna>19){
+                    cout<<"La columna ingresada no es valida, ingrese otra columna."<<endl;
+                }
+                else{
+                    k=1;
+                }
+            }
+            k=0;
+
+
+
+            if(sillas[fila][columna]=='-'){
+                eleccion='M';
+                while(eleccion!='S' && eleccion!='N'){
+                    cout<<"La silla esta disponible. Ingresa S si quieres reservarla o N si quieres elegir otra columna o fila: ";
+                    cin>>eleccion;
+                }
+                if(eleccion=='S'){
+                    sillas[fila][columna]='+';
+                }
+            }
+            else{
+                eleccion='M';
+                while(eleccion!='S' && eleccion!='N'){
+                    cout<<"La silla esta reservada. Ingresa S si quieres cancelar la reserva o N si quieres elegir otra columna o fila: ";
+                    cin>>eleccion;
+                }
+                if(eleccion=='S'){
+                    sillas[fila][columna]='-';
+                }
+            }
+    }
+
+    cout<<"Asi se encuentra el aforo de las sillas: "<<endl;
+
+    mostrar_sillas(sillas);
+
+    eleccion='N';
+
+    cout<<"Si NO quieres reservar o cancelar una reserva de otra silla, ingresa P: ";
+    cin>>otra_vez;
+
+}
+    return 0;
+}
+
+
+void mostrar_sillas(char sillas[15][20]){
+
+    for(int j=0; j<15; j++){
+        cout<<endl<<"---------------------------------------------------------------------------------"<<endl<<'|';
+        for(int i=0; i<20; i++){
+            cout<<" "<<sillas[j][i]<<" ";
+            cout<<'|';
+        }
+    }
+
+    cout<<endl<<"---------------------------------------------------------------------------------"<<endl<<endl<<endl;
+}
