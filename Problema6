@@ -1,0 +1,58 @@
+#include <iostream>
+
+using namespace std;
+
+void problema6(char *cad, int dim);
+
+int main()
+{
+       /* Problema 6. Escriba un programa que reciba una cadena de caracteres y separe los números del resto de caracteres,
+        generando una cadena que no tiene números y otra con los números que había en la cadena original.
+        Ejemplo: Si se recibe abc54rst el programa debe imprimir las cadenas: abcrst y 54.
+        Nota: la salida del programa debe ser:
+        Original: abc54rst.
+        Texto: abcrst. Numeros: 54 */
+
+        int dim = 0;
+        char *cad= new char[dim+1];
+        cout<<"Ingrese la cadena de caracteres: ";
+
+        cad[dim]='\0';
+        fflush(stdin);
+        gets(cad);
+        problema6(cad, dim);
+        delete[] cad;
+    return 0;
+}
+
+
+void problema6(char *cad, int dim){
+
+    char *letras= new char[dim+1];
+    char *numeros= new char [dim+1];
+
+    int m=0;        //La posición para agregar los valores de la memoria de letras.
+    int n=0;        //La posición para agregar los valores de la memoria de numeros.
+
+    for(int i=0; cad[i]!='\0'; i++){
+        if(cad[i]<48 || cad[i]>57){
+            letras[m]=cad[i];
+            m++;
+        }
+        else{
+            numeros[n]=cad[i];
+            n++;
+        }
+    }
+
+
+    letras[m]='\0';
+    numeros[n]='\0';
+
+    cout<<"Original: "<<cad<<'.'<<endl;
+    cout<<"Texto: "<<letras<<". Numero: "<<numeros<<endl;
+
+    delete[] letras;
+    delete[] numeros;
+
+}
