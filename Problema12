@@ -1,0 +1,93 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    unsigned short int matriz[5][5];
+    unsigned short int matriz2[5][5];
+    int a=1;
+
+    //Llenamos la matriz
+    for(int j=0; j<5; j++){
+        for(int i=0; i<5; i++){
+            matriz[j][i]=a;
+            a++;
+        }
+    }
+
+    //Impresión matriz original
+    cout<<endl<<"     Matriz Original"<<endl;
+    for(int j=0; j<5; j++){
+        for(int i=0; i<5; i++){
+            cout<<matriz[j][i]<<"  ";
+        }
+        cout<<endl;
+    }
+
+
+    //Llenamos la matriz rotada 90 grados°
+    int l=4;
+    int k;
+    for(int j=0; j<5; j++){
+        k=0;
+        for(int i=0; i<5; i++){
+                matriz2[k][l]=matriz[j][i];
+                k++;
+        }
+        l--;
+    }
+
+    cout<<endl<<"     Matriz Rotada 90 grados."<<endl;
+    //Impresión matriz 90 grados
+    for(int j=0; j<5; j++){
+        for(int i=0; i<5; i++){
+            cout<<matriz2[j][i]<<"  ";
+        }
+        cout<<endl;
+    }
+
+
+    //Llenamos la matriz rotada 180 grados°
+    l=4;
+    for(int j=0; j<5; j++){
+        k=0;
+        for(int i=0; i<5; i++){
+                matriz[k][l]=matriz2[j][i];
+                k++;
+        }
+        l--;
+    }
+
+    cout<<endl<<"     Matriz rotada 180 grados."<<endl;
+    //Impresión matriz 180 grados
+    for(int j=0; j<5; j++){
+        for(int i=0; i<5; i++){
+            cout<<matriz[j][i]<<"  ";
+        }
+        cout<<endl;
+    }
+
+
+    //Llenamos la matriz rotada 270 grados°
+    l=4;
+    for(int j=0; j<5; j++){
+        k=0;
+        for(int i=0; i<5; i++){
+                matriz2[k][l]=matriz[j][i];
+                k++;
+        }
+        l--;
+    }
+
+    cout<<endl<<"     Matriz Rotada 270 grados."<<endl;
+    //Impresión matriz 270 grados
+    for(int j=0; j<5; j++){
+        for(int i=0; i<5; i++){
+            cout<<matriz2[j][i]<<"  ";
+        }
+        cout<<endl;
+    }
+        cout<<endl;
+    return 0;
+}
