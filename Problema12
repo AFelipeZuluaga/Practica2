@@ -4,6 +4,10 @@ using namespace std;
 
 int main()
 {
+
+    /* Problema 12. Elabore un programa que llene una matriz 5x5 con los números del 1 al 25 y la imprima, luego
+    imprima la matriz rotada 90, 180 y 270 grados. */
+
     unsigned short int matriz[5][5];
     unsigned short int matriz2[5][5];
     int a=1;
