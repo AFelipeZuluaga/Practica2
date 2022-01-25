@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+int factorial(int a);
+int main()
+{
+/*    Problema 14. En una malla de 2x2, realizando únicamente movimientos hacia la derecha y hacia abajo hay 6
+        posibles caminos para llegar de la esquina superior izquierda a la inferior derecha como se observa en la Figura 7.
+
+        Escriba un programa que reciba un numero n y calcule el número de caminos posibles en una cuadricula de nxn.
+        Nota: la salida del programa debe ser:
+        Para una malla de 2x2 puntos hay 6 caminos.
+*/
+
+    int n;
+    long long int prod=1, caminos;
+    cout<<"Ingrese el numero n: ";
+    cin>>n;
+
+    for(int i=0; i<n; i++) prod=prod*(2*n-i);
+
+    caminos=prod/factorial(n);
+
+    cout<<"Para una malla de "<<n<<'x'<<n<<" puntos hay "<<caminos<<" caminos."<<endl;
+    return 0;
+}
+
+int factorial(int a){
+    int fact=1;
+    for(int i=a; i>=1;i--)
+        fact=fact*i;
+    return fact;
+}
