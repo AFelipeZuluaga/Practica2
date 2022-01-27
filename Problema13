@@ -1,0 +1,64 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int rectangulo1[4];
+    int rectangulo2[4];
+    int rectangulo3[4];
+
+    cout<<"Dame la coordenadas x de la esquina superior izquierda del rectangulo 1: ";
+    cin>>rectangulo1[0];
+
+    cout<<"Dame la coordenadas y de la esquina superior izquierda del rectangulo 1: ";
+    cin>>rectangulo1[1];
+
+    cout<<"Dame el ancho del rectangulo 1: ";
+    cin>>rectangulo1[2];
+
+    cout<<"Dame el largo del rectangulo 2: ";
+    cin>>rectangulo1[3];
+
+    cout<<"Dame la coordenadas x de la esquina superior izquierda del rectangulo 2: ";
+    cin>>rectangulo2[0];
+
+    cout<<"Dame la coordenadas y de la esquina superior izquierda del rectangulo 2: ";
+    cin>>rectangulo2[1];
+
+    cout<<"Dame el ancho del rectangulo 1: ";
+    cin>>rectangulo2[2];
+
+    cout<<"Dame el largo del rectangulo 2: ";
+    cin>>rectangulo2[3];
+
+    if(rectangulo2[0]<rectangulo1[0]){
+        //Encontramos el x
+        rectangulo3[0]=rectangulo1[0];
+        //Se encuentra el ancho
+        rectangulo3[2]=rectangulo2[0]+rectangulo2[2]-(rectangulo1[0]-rectangulo2[0]);
+    }
+    else{
+        //Encontramos el x
+        rectangulo3[0]=rectangulo2[0];
+        //Se encuentra el ancho
+        rectangulo3[2]=rectangulo1[0]+rectangulo1[2]-rectangulo2[0];
+    }
+
+    if(rectangulo2[1]<rectangulo1[1]){
+        //Encontramos el y
+        rectangulo3[1]=rectangulo2[1];
+        //Se encuentra el largo
+        rectangulo3[3]=rectangulo2[1]-(rectangulo1[1]-rectangulo2[3]);
+    }
+    else{
+        //Encontramos el y
+        rectangulo3[1]=rectangulo1[1];
+        //Se encuentra el largo
+        rectangulo3[3]=rectangulo1[1]-(rectangulo2[1]-rectangulo1[3]);
+    }
+
+cout<<"El rectángulo C es el arreglo {"<<rectangulo3[0]<<", "<<rectangulo3[1]<<", "<<rectangulo3[2]<<", "<<rectangulo3[3]<<"}."<<endl;
+
+    return 0;
+}
